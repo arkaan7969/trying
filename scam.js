@@ -1,9 +1,8 @@
+
 const express = require('express');
 const app = express();
 
-app.get('/search', (req, res) => {
-  const query = req.query.q;
-  res.send(`<h1>Results for: ${query}</h1>`);
+app.get('/', function (req, res) {
+  const userInput = req.query.name;
+  res.send("<div>" + userInput + "</div>"); // ❌ reflected XSS
 });
-
-app.listen(3000);
